@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90 North Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #222;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .menu-button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: white;
+            color: #222;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Layout */
+        .layout {
+            display: flex;
+            margin-top: 60px;
+        }
+
+        /* Left Menu */
+        .left-menu {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .left-menu.collapsed {
+            transform: translateX(-100%);
+        }
+
+        .left-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .left-menu ul li {
+            margin-bottom: 15px;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .left-menu ul li:hover {
+            background-color: #f0a500;
+            color: #222;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            position: relative;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 60px);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .main-content p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .quotes {
+            margin-top: 30px;
+            color: #f0a500;
+            font-size: 22px;
+            font-style: italic;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Right Panel */
+        .right-panel {
+            width: 300px;
+            background-color: #f4f4f4;
+            color: #333;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-panel h3 {
+            margin-top: 0;
+            color: #f0a500;
+            font-size: 22px;
+        }
+
+        .news-card {
+            background: #fff;
+            color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-card h4 {
+            margin: 0 0 10px 0;
+            color: #f0a500;
+        }
+
+        .news-card p {
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>90 North Group</h1>
+        <div class="menu-button" onclick="toggleMenu()">
+            <div class="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            Menu
+        </div>
+    </div>
+
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Left Menu -->
+        <div id="leftMenu" class="left-menu">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>Welcome to 90 North Group</h2>
+            <p>
+                Discover responsible investments and opportunities with 90 North Group, your trusted real estate investment manager.
+            </p>
+            <div class="quotes">
+                "Our mission is to bridge ambition with opportunity, empowering communities globally."
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <h3>Latest News</h3>
+            <div class="news-card">
+                <h4>News Title 1</h4>
+                <p>Discover our latest investment in international portfolios with outstanding returns.</p>
+            </div>
+            <div class="news-card">
+                <h4>News Title 2</h4>
+                <p>We have partnered with leading investors to create value-driven real estate deals.</p>
+            </div>
+            <div class="news-card">
+                <h4>News Title 3</h4>
+                <p>90 North Group announces its newest venture in sustainable real estate development.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 90 North Group. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('leftMenu');
+            menu.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
